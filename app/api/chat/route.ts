@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     const lastMessage = messages[messages.length - 1]
     const userQuery = lastMessage?.content?.trim() || ""
 
-    const OPENROUTER_API_KEY = "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"
+    const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY
 
     const systemPrompt = `You are NEU UniGuide, the intelligent campus assistant for Near East University in Northern Cyprus.
 
