@@ -1,116 +1,89 @@
-Campus Navigation App
+<div align="center">
 
-The Campus Navigation App is a modern web application built with Next.js, React, and Tailwind CSS.
-It helps students, staff, and visitors easily navigate a university campus and access important academic and facility-related information.
+# 🧭 NEU UniGuide
 
+**A smart campus guide for Near East University: navigation, academic tools and an AI assistant in one app**
 
+![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=flat-square&logo=radixui&logoColor=white)
 
-Features
-
-Campus Map & Navigation
-
-* Interactive campus map
-* Route guidance between buildings and facilities
-
-Search Functionality
-
-* Search for:
-
-  * Departments
-  * Buildings
-  * Facilities
-  * Doctors
-
-Academic Tools
-
-* Credit tracker
-* Workload estimator
-* Graduation checker
-* Course explorer
-* Curriculum viewer
-
-Chatbot
-
-* AI-powered chatbot for campus-related questions
-* Helps users find locations, services, and academic info
-
-Doctor & Facility Information
-
-* Detailed profiles for doctors and facilities
-* Comparison features
-* Booking support (if enabled)
-
-
-
-Technologies Used
-
-* Next.js
-* React
-* TypeScript
-* Tailwind CSS
-* Radix UI
-* Recharts
-
-
-
-Project Structure
-
-```text
-.
-├── app/                  # Next.js routes and global styles
-├── components/           # Reusable React components
-├── hooks/                # Custom React hooks
-├── lib/                  # Utility functions and data
-├── public/               # Static assets
-├── styles/               # Global CSS styles
-├── next.config.mjs       # Next.js configuration
-├── package.json          # Project dependencies and scripts
-├── pnpm-lock.yaml        # pnpm lock file
-├── postcss.config.mjs    # PostCSS configuration
-├── tailwind.config.ts    # Tailwind CSS configuration
-├── tsconfig.json         # TypeScript configuration
-```
+</div>
 
 ---
 
-Getting Started
+## Overview
 
-Follow these steps to run the project locally:
+NEU UniGuide helps students, staff and visitors find their way around the Near East University campus. It also gives quick answers about faculties, departments, doctors and facilities. The interface is available in **English, Turkish and Arabic**, with light and dark themes.
 
-Clone the Repository
+📄 Full project report: [Report.pdf](Report.pdf)
+
+## Features
+
+| Module | Highlights |
+|---|---|
+| **Campus map & routes** | Interactive map, route guidance between buildings, nearest-facility finder |
+| **Smart search** | Departments, buildings, facilities and doctors |
+| **Academic tools** | Credit tracker, workload estimator, graduation checker, course explorer, curriculum viewer |
+| **AI assistant** | Campus chatbot backed by an LLM API, with a built-in NEU knowledge base and a voice assistant |
+| **Doctors & facilities** | Detailed profiles, side-by-side comparison, appointment and booking requests, live status |
+| **Analytics** | Department analytics, academic pathways and career outcomes (Recharts) |
+| **Admin** | Manage and reset campus data |
+
+## Tech stack
+
+- **Framework:** Next.js 16 (App Router), React 19, TypeScript
+- **UI:** Tailwind CSS 4, shadcn/ui on Radix UI, Lucide icons
+- **Charts:** Recharts
+- **AI:** OpenRouter chat-completions API, called from a server-side route (`app/api/chat`)
+
+## Getting started
+
+Requirements: **Node.js 18+** and **pnpm**.
 
 ```bash
-git clone <repository-url>
-cd campus-navigation-app
-```
-
-Install Dependencies
-
-```bash
+git clone https://github.com/gintoki123/neu-uniguide.git
+cd neu-uniguide
 pnpm install
 ```
 
-Run the Development Server
+**Set up the AI assistant** (optional; without a key the rest of the app works and the chatbot shows a fallback message):
 
 ```bash
-pnpm dev
+cp .env.example .env.local
+# then put your key from https://openrouter.ai/keys in .env.local
 ```
 
-Open in Browser
+**Run:**
 
-Visit:
-[http://localhost:3000](http://localhost:3000)
+```bash
+pnpm dev     # http://localhost:3000
+```
 
----
+## Project structure
 
-Notes
+```
+neu-uniguide/
+├── app/
+│   ├── api/chat/route.ts   # Server-side AI endpoint (reads OPENROUTER_API_KEY)
+│   ├── layout.tsx
+│   └── page.tsx            # App shell and section routing
+├── components/
+│   ├── features/           # Academic tools, booking, comparison, voice assistant…
+│   ├── views/              # Main screens (dashboard, map, doctors, chatbot…)
+│   └── ui/                 # shadcn/ui building blocks
+├── lib/                    # Campus data, knowledge base, translations, storage
+├── hooks/
+├── public/
+└── styles/
+```
 
-* Make sure Node.js and pnpm are installed on your system
-* This project uses the Next.js App Router
+## License
 
+Developed for educational and academic purposes at Near East University.
 
+## Author
 
-License
-
-This project is for educational and academic purposes.
-
+**Bilal Boulaalam** · [GitHub](https://github.com/gintoki123)
